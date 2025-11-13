@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import logo from 'figma:asset/b61f2b4b534e8a6041c55f252c7d87244b82dc7b.png';
+import logo from '../assets/capturecall-logo.png';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
