@@ -122,15 +122,15 @@ export function PremiumPricing() {
               >
                 {/* Popular Badge */}
                 {isPopular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-[#1E3A8A] text-white px-4 py-1 rounded-full text-xs md:text-sm font-semibold">
+                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-[#1E3A8A] text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold shadow-lg">
                       {plan.badge}
                     </div>
                   </div>
                 )}
 
                 {/* Header */}
-                <div className="p-6 md:p-8 border-b border-gray-100">
+                <div className={`p-6 md:p-8 border-b border-gray-100 ${isPopular ? 'pt-12 md:pt-14' : ''}`}>
                   <div className="flex items-center justify-between mb-4">
                     <Icon className={`w-8 h-8 md:w-10 md:h-10 ${isPopular ? 'text-[#1E3A8A]' : 'text-gray-700'}`} />
                     {!isPopular && plan.badge && (
