@@ -168,7 +168,20 @@ This demo request was submitted from the CaptureCall AI website.
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    // Auto-format phone number
+    if (field === 'phone') {
+      const digits = value.replace(/\D/g, '');
+      let formatted = digits;
+      if (digits.length >= 6) {
+        formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+      } else if (digits.length >= 3) {
+        formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+      }
+      setFormData(prev => ({ ...prev, [field]: formatted }));
+    } else {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    }
+
     // Clear error for this field when user starts typing
     if (errors[field as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [field]: undefined }));
@@ -218,13 +231,13 @@ This demo request was submitted from the CaptureCall AI website.
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-gray-600 mb-1">Support</p>
-                    <a 
-                      href="mailto:support@capturecall.ca" 
+                    <a
+                      href="mailto:support@capturecall.ca"
                       className="text-sm md:text-base text-[#1E3A8A] hover:underline"
                     >
                       support@capturecall.ca
@@ -233,13 +246,13 @@ This demo request was submitted from the CaptureCall AI website.
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-gray-600 mb-1">Demo Requests</p>
-                    <a 
-                      href="mailto:demo@capturecall.ca" 
+                    <a
+                      href="mailto:demo@capturecall.ca"
                       className="text-sm md:text-base text-[#1E3A8A] hover:underline"
                     >
                       demo@capturecall.ca
@@ -248,13 +261,13 @@ This demo request was submitted from the CaptureCall AI website.
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-gray-600 mb-1">Phone</p>
-                    <a 
-                      href="tel:+14038520469" 
+                    <a
+                      href="tel:+14038520469"
                       className="text-sm md:text-base text-[#1E3A8A] hover:underline"
                     >
                       (403) 852-0469
@@ -263,12 +276,12 @@ This demo request was submitted from the CaptureCall AI website.
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#1E3A8A] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-gray-600 mb-1">Location</p>
-                    <p className="text-gray-700">Calgary, Alberta, Canada</p>
+                    <p className="text-sm md:text-base text-gray-700">Calgary, Alberta, Canada</p>
                   </div>
                 </div>
               </div>
@@ -314,6 +327,7 @@ This demo request was submitted from the CaptureCall AI website.
                       className={`mt-1 h-14 ${errors.firstName ? 'border-red-500' : ''}`}
                       aria-required="true"
                       aria-invalid={!!errors.firstName}
+                      autoComplete="given-name"
                     />
                     {errors.firstName && (
                       <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
@@ -332,6 +346,7 @@ This demo request was submitted from the CaptureCall AI website.
                       className={`mt-1 h-14 ${errors.lastName ? 'border-red-500' : ''}`}
                       aria-required="true"
                       aria-invalid={!!errors.lastName}
+                      autoComplete="family-name"
                     />
                     {errors.lastName && (
                       <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
@@ -351,6 +366,7 @@ This demo request was submitted from the CaptureCall AI website.
                     className={`mt-1 h-14 ${errors.practiceName ? 'border-red-500' : ''}`}
                     aria-required="true"
                     aria-invalid={!!errors.practiceName}
+                    autoComplete="organization"
                   />
                   {errors.practiceName && (
                     <p className="text-red-500 text-sm mt-1">{errors.practiceName}</p>
@@ -369,6 +385,7 @@ This demo request was submitted from the CaptureCall AI website.
                     className={`mt-1 h-14 ${errors.email ? 'border-red-500' : ''}`}
                     aria-required="true"
                     aria-invalid={!!errors.email}
+                    autoComplete="email"
                   />
                   {errors.email && (
                     <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -387,6 +404,8 @@ This demo request was submitted from the CaptureCall AI website.
                     className={`mt-1 h-14 ${errors.phone ? 'border-red-500' : ''}`}
                     aria-required="true"
                     aria-invalid={!!errors.phone}
+                    autoComplete="tel"
+                    placeholder="(403) 555-1234"
                   />
                   {errors.phone && (
                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>

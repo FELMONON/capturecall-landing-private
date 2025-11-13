@@ -8,20 +8,25 @@ export function PremiumHero() {
   const [practicesViewing, setPracticesViewing] = useState(3);
 
   useEffect(() => {
-    // Animate calls saved counter
-    const interval = setInterval(() => {
-      setCallsSaved(prev => prev + Math.floor(Math.random() * 3));
-    }, 5000);
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Simulate practices viewing
-    const viewingInterval = setInterval(() => {
-      setPracticesViewing(Math.floor(Math.random() * 5) + 2);
-    }, 8000);
+    if (!prefersReducedMotion) {
+      // Animate calls saved counter
+      const interval = setInterval(() => {
+        setCallsSaved(prev => prev + Math.floor(Math.random() * 3));
+      }, 5000);
 
-    return () => {
-      clearInterval(interval);
-      clearInterval(viewingInterval);
-    };
+      // Simulate practices viewing
+      const viewingInterval = setInterval(() => {
+        setPracticesViewing(Math.floor(Math.random() * 5) + 2);
+      }, 8000);
+
+      return () => {
+        clearInterval(interval);
+        clearInterval(viewingInterval);
+      };
+    }
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -124,7 +129,7 @@ export function PremiumHero() {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="w-full sm:w-auto bg-white text-[#1E3A8A] hover:bg-gray-100 h-12 md:h-14 px-6 md:px-8 text-base md:text-lg shadow-lg"
+              className="w-full sm:w-auto bg-white text-[#1E3A8A] hover:bg-gray-100 hover:scale-105 h-12 md:h-14 px-6 md:px-8 text-base md:text-lg shadow-lg transition-all duration-200"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Book Free Demo
@@ -133,7 +138,7 @@ export function PremiumHero() {
               onClick={() => scrollToSection('how-it-works')}
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-2 border-white/30 text-white bg-transparent hover:bg-white/10 h-12 md:h-14 px-6 md:px-8 text-base md:text-lg"
+              className="w-full sm:w-auto border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:scale-105 h-12 md:h-14 px-6 md:px-8 text-base md:text-lg transition-all duration-200"
             >
               Learn More
             </Button>

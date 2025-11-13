@@ -174,10 +174,10 @@ export function PremiumPricing() {
                   <Button
                     onClick={scrollToContact}
                     size="lg"
-                    className={`w-full h-12 md:h-14 text-base md:text-lg font-semibold ${
+                    className={`w-full h-12 md:h-14 text-base md:text-lg font-semibold transition-all duration-200 hover:scale-105 ${
                       isPopular
-                        ? 'bg-[#1E3A8A] hover:bg-[#1E3A8A]/90 text-white'
-                        : 'bg-gray-900 hover:bg-gray-800 text-white'
+                        ? 'bg-[#1E3A8A] hover:bg-[#1E3A8A]/90 text-white shadow-lg hover:shadow-xl'
+                        : 'bg-gray-900 hover:bg-gray-800 text-white shadow-md hover:shadow-lg'
                     }`}
                   >
                     {plan.cta}

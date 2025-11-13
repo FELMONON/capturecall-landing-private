@@ -6,10 +6,26 @@ import logo from '../assets/capturecall-logo.png';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Update active section based on scroll position
+      const sections = ['hero', 'how-it-works', 'pricing', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -48,30 +64,62 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8" aria-label="Main navigation">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-gray-700 hover:text-[#1E3A8A] transition-colors text-sm lg:text-base"
+              className={`text-sm lg:text-base transition-colors relative ${
+                activeSection === 'hero'
+                  ? 'text-[#1E3A8A] font-semibold'
+                  : 'text-gray-700 hover:text-[#1E3A8A]'
+              }`}
+              aria-current={activeSection === 'hero' ? 'page' : undefined}
             >
               Home
+              {activeSection === 'hero' && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#1E3A8A]" />
+              )}
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-gray-700 hover:text-[#1E3A8A] transition-colors text-sm lg:text-base"
+              className={`text-sm lg:text-base transition-colors relative ${
+                activeSection === 'how-it-works'
+                  ? 'text-[#1E3A8A] font-semibold'
+                  : 'text-gray-700 hover:text-[#1E3A8A]'
+              }`}
+              aria-current={activeSection === 'how-it-works' ? 'page' : undefined}
             >
               How It Works
+              {activeSection === 'how-it-works' && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#1E3A8A]" />
+              )}
             </button>
             <button
               onClick={() => scrollToSection('pricing')}
-              className="text-gray-700 hover:text-[#1E3A8A] transition-colors text-sm lg:text-base"
+              className={`text-sm lg:text-base transition-colors relative ${
+                activeSection === 'pricing'
+                  ? 'text-[#1E3A8A] font-semibold'
+                  : 'text-gray-700 hover:text-[#1E3A8A]'
+              }`}
+              aria-current={activeSection === 'pricing' ? 'page' : undefined}
             >
               Pricing
+              {activeSection === 'pricing' && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#1E3A8A]" />
+              )}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-[#1E3A8A] transition-colors text-sm lg:text-base"
+              className={`text-sm lg:text-base transition-colors relative ${
+                activeSection === 'contact'
+                  ? 'text-[#1E3A8A] font-semibold'
+                  : 'text-gray-700 hover:text-[#1E3A8A]'
+              }`}
+              aria-current={activeSection === 'contact' ? 'page' : undefined}
             >
               Contact
+              {activeSection === 'contact' && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#1E3A8A]" />
+              )}
             </button>
             <Button
               onClick={() => scrollToSection('contact')}
@@ -85,7 +133,10 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-[#1E3A8A]"
+            className="md:hidden text-[#1E3A8A] p-2"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -93,7 +144,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden pb-4 bg-white rounded-b-lg">
+          <nav id="mobile-menu" className="md:hidden pb-4 bg-white rounded-b-lg" aria-label="Mobile navigation">
             <div className="flex flex-col space-y-4">
               <button
                 onClick={() => scrollToSection('hero')}

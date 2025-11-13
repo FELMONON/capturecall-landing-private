@@ -22,10 +22,18 @@ import { FinalCTA } from './components/FinalCTA';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 import { StickyDemoButton } from './components/StickyDemoButton';
+import { ScrollToTop } from './components/ScrollToTop';
 import { CookieConsent } from './components/CookieConsent';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Mark page as loaded after initial render
+    setIsLoaded(true);
+  }, []);
+
   useEffect(() => {
     // Set SEO meta tags
     document.title = 'CaptureCall AI | AI Receptionist for Calgary Dental Practices | Starting at $397/month';
@@ -66,7 +74,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen bg-white transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <TopContactBar />
       <Header />
       <main className="pt-[90px] md:pt-[110px]">
@@ -95,6 +103,7 @@ export default function App() {
       </main>
       <Footer />
       <StickyDemoButton />
+      <ScrollToTop />
       <CookieConsent />
     </div>
   );
