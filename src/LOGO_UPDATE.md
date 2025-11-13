@@ -40,7 +40,7 @@ Successfully integrated the official CaptureCall AI logo throughout the website.
 
 ### Import Statement
 ```typescript
-import logo from 'figma:asset/b61f2b4b534e8a6041c55f252c7d87244b82dc7b.png';
+import logo from '../assets/capturecall-logo.png';
 ```
 
 ### Usage in Header

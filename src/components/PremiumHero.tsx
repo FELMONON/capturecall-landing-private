@@ -2,7 +2,6 @@ import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Calendar, Shield, Phone, CheckCircle2, Sparkles, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
-import logo from 'figma:asset/b61f2b4b534e8a6041c55f252c7d87244b82dc7b.png';
 
 export function PremiumHero() {
   const [callsSaved, setCallsSaved] = useState(12847);
