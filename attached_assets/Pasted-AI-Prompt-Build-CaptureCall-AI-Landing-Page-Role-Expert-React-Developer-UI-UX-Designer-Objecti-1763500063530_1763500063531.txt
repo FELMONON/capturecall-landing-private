@@ -1,0 +1,70 @@
+AI Prompt: Build "CaptureCall AI" Landing Page
+Role: Expert React Developer & UI/UX Designer Objective: Build a high-converting, premium single-page landing website for "CaptureCall AI", an AI receptionist service for dental practices. Tech Stack: React (Vite), Tailwind CSS, shadcn/ui, Framer Motion, i18next, Lucide React.
+
+1. Project Setup & Configuration
+Framework: Vite + React (TypeScript).
+Styling: Tailwind CSS with shadcn/ui configuration (CSS variables for colors).
+Fonts: Inter (Google Fonts).
+Icons: lucide-react.
+Animations: framer-motion (fade-ins, slide-ups).
+Internationalization: i18next & react-i18next (English & French support).
+2. Design System & Aesthetics
+Theme: Professional, trustworthy, medical/tech.
+Colors:
+Primary: Deep Blue (#1E3A8A)
+Secondary: Light Blue/Gray (#F8FAFC)
+Accents: Subtle gradients (Blue to Purple/Indigo).
+UI Elements: Glassmorphism for sticky headers, rounded corners (xl/2xl), soft shadows, clean typography.
+3. Core Features
+Responsive: Mobile-first design. Hamburger menu for mobile nav.
+Smooth Scroll: Navigation links scroll to specific section IDs.
+Translations: Toggle button (EN/FR) in header. All text must be dynamic using 
+t('key')
+.
+4. Sections Breakdown
+A. Header (<Header />)
+Layout: Sticky, glassmorphism effect (backdrop-blur).
+Content: Logo (Text or Image), Nav Links (How it Works, Benefits, Pricing, Contact), Language Switcher, "Book Free Demo" Button.
+B. Hero Section (<PremiumHero />)
+Visual: Gradient background or clean white with subtle patterns.
+Content:
+Badge: "Trusted by 50+ Calgary Dental Practices".
+Headline: "Never Miss Another Patient Call".
+Subhead: Value prop about 24/7 handling and booking.
+CTAs: "Get Started" (Primary), "See Live Demo" (Secondary).
+Trust Indicators: "Google Partner", "HIPAA Compliant".
+Dynamic Stat: "1,234 Calls Saved This Week" (animated counter).
+C. Trust Bar (<TrustBar />)
+Layout: Horizontal strip.
+Content: Icons + Text: HIPAA Compliant, SOC 2 Secure, Award Winning, 4.9/5 Rating.
+D. Problem Section (<ProblemSection />)
+Theme: "The Hidden Cost of Missed Calls".
+Components: 3 Cards with icons (Lost Revenue, Staff Burnout, Poor Experience).
+Highlight: Large stat text "$100k - $265k lost annually".
+E. How It Works (<HowItWorks />)
+Structure: 3 Steps (Setup, Test, Go Live).
+Visual: Timeline or numbered cards with connecting lines.
+F. Benefits (<Benefits />)
+Layout: Grid of 6 cards.
+Content: 24/7 Availability, Increased Appointments, Enhanced Experience, etc.
+Style: Hover effects, subtle gradients on icons.
+G. Pricing (<PremiumPricing />)
+Tiers: Starter, Professional (Highlighted/Popular), Enterprise.
+Features: Checkmark lists.
+Toggle: Monthly vs Yearly (optional, or just Monthly).
+Trust: "30-Day Money-Back Guarantee".
+H. Contact Form (<ContactForm />)
+Fields: First Name, Last Name, Practice Name, Email, Phone, Best Time to Call, Message.
+Validation: Required fields, email format.
+Action: Simulate submission (show success message) or mailto link.
+I. Footer (<Footer />)
+Content: Logo, Description, Quick Links, Contact Info (Email, Phone, Location), Social Media Icons, Copyright.
+5. Implementation Steps
+Initialize Project: Setup Vite, Tailwind, shadcn/ui.
+Setup i18n: Create 
+i18n.ts
+ with English and French translations for all sections.
+Build Components: Create each section as a separate component in src/components.
+Compose App: Assemble components in App.tsx.
+Add Polish: Apply Framer Motion animations (useInView) to sections for a premium feel.
+Prompt for AI: "Generate the complete code for the React application described above. Start with the project structure, then the configuration files (Tailwind, i18n), and then each component file. Ensure all text is translatable."
