@@ -6,10 +6,30 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function PremiumPricing() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isYearly, setIsYearly] = useState(false);
 
   const plans = ['starter', 'pro', 'enterprise'];
+  
+  const basePrices: Record<string, number> = {
+    starter: 299,
+    pro: 499,
+  };
+
+  const getPrice = (plan: string) => {
+    if (plan === 'enterprise') {
+      return t('pricing.enterprise.price');
+    }
+
+    const basePrice = basePrices[plan];
+    const finalPrice = isYearly ? Math.round(basePrice * 12 * 0.8) : basePrice;
+    
+    // Simple formatting based on language
+    if (i18n.language === 'fr') {
+      return `${finalPrice.toLocaleString('fr-CA')} $`;
+    }
+    return `$${finalPrice.toLocaleString('en-US')}`;
+  };
 
   return (
     <section id="pricing" className="py-24 relative">
@@ -52,7 +72,7 @@ export function PremiumPricing() {
                 </CardTitle>
                 <div className="mt-4">
                   <span className="text-4xl font-bold text-slate-900 dark:text-white">
-                    {t(`pricing.${plan}.price`)}
+                    {getPrice(plan)}
                   </span>
                   {plan !== 'enterprise' && (
                     <span className="text-slate-500 ml-2">
