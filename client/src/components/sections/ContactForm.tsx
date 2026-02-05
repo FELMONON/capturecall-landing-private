@@ -8,15 +8,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from 'framer-motion';
+import { Phone, Mail, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 
 const formSchema = z.object({
-  firstName: z.string().min(2, "Required"),
-  lastName: z.string().min(2, "Required"),
-  practiceName: z.string().min(2, "Required"),
-  email: z.string().email("Invalid email"),
-  phone: z.string().min(10, "Invalid phone"),
+  firstName: z.string().min(2, "First name is required"),
+  lastName: z.string().min(2, "Last name is required"),
+  practiceName: z.string().min(2, "Practice name is required"),
+  email: z.string().email("Please enter a valid email"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
   message: z.string().optional(),
 });
 
@@ -39,72 +39,116 @@ export function ContactForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Request Sent!",
-      description: "We'll be in touch with you shortly to schedule your demo.",
+      title: "Demo Request Submitted!",
+      description: "Our team will contact you within 24 hours to schedule your personalized demo.",
     });
     form.reset();
   }
 
+  const benefits = [
+    { icon: Clock, text: "15-minute personalized demo" },
+    { icon: CheckCircle2, text: "See real-time call handling" },
+    { icon: Sparkles, text: "Custom setup for your practice" },
+  ];
+
   return (
-    <section id="contact" className="py-24 bg-slate-50 dark:bg-slate-950">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-20 lg:py-28 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-100/50 to-transparent dark:from-blue-900/20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-green-100/50 to-transparent dark:from-green-900/20 blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <Card className="border-none shadow-2xl overflow-hidden">
-              <div className="grid md:grid-cols-2">
-                <div className="p-8 md:p-12 bg-primary text-white flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-3xl font-bold mb-6">{t('contact.title')}</h2>
+            {/* Card Container */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl shadow-slate-900/10 dark:shadow-black/30 overflow-hidden border border-slate-100 dark:border-slate-800">
+              <div className="grid lg:grid-cols-5">
+                {/* Left Side - Info Panel */}
+                <div className="lg:col-span-2 p-8 lg:p-12 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white relative overflow-hidden">
+                  {/* Decorative circles */}
+                  <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-2xl" />
+                  <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-400/20 rounded-full blur-2xl" />
+
+                  <div className="relative z-10">
+                    <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+                      {t('contact.title')}
+                    </h2>
                     <p className="text-blue-100 leading-relaxed mb-8">
-                      Join 50+ Calgary dental practices automating their front desk with CaptureCall AI.
+                      Book a free demo and see how CaptureCall AI can transform your practice's patient communication.
                     </p>
-                    
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center">1</div>
-                        <div>
-                          <p className="font-medium">Fill out the form</p>
-                          <p className="text-sm text-blue-200">Tell us about your practice</p>
+
+                    {/* Benefits List */}
+                    <div className="space-y-4 mb-10">
+                      {benefits.map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                            <item.icon className="w-5 h-5" />
+                          </div>
+                          <span className="font-medium">{item.text}</span>
                         </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center">2</div>
-                        <div>
-                          <p className="font-medium">Get your demo</p>
-                          <p className="text-sm text-blue-200">See the AI in action</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center">3</div>
-                        <div>
-                          <p className="font-medium">Start saving calls</p>
-                          <p className="text-sm text-blue-200">Setup takes less than 30 mins</p>
-                        </div>
-                      </div>
+                      ))}
                     </div>
-                  </div>
-                  
-                  <div className="mt-12 pt-8 border-t border-blue-500/30 text-sm text-blue-200">
-                    Trusted by top dental clinics in Alberta
+
+                    {/* Contact Info */}
+                    <div className="pt-8 border-t border-white/20 space-y-4">
+                      <p className="text-sm text-blue-200 font-medium uppercase tracking-wider mb-4">
+                        Or reach us directly
+                      </p>
+                      <a href="mailto:hello@capturecall.ai" className="flex items-center gap-3 text-white hover:text-blue-200 transition-colors">
+                        <Mail className="w-5 h-5" />
+                        <span>hello@capturecall.ai</span>
+                      </a>
+                      <a href="tel:+15551234567" className="flex items-center gap-3 text-white hover:text-blue-200 transition-colors">
+                        <Phone className="w-5 h-5" />
+                        <span>+1 (555) 123-4567</span>
+                      </a>
+                    </div>
+
+                    {/* Trust badge */}
+                    <div className="mt-10 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                      <p className="text-sm font-medium text-blue-100">
+                        Trusted by 50+ dental practices across Calgary and Alberta
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-8 md:p-12 bg-white dark:bg-slate-900">
+                {/* Right Side - Form */}
+                <div className="lg:col-span-3 p-8 lg:p-12">
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                      Request Your Free Demo
+                    </h3>
+                    <p className="text-slate-500 dark:text-slate-400">
+                      Fill out the form below and we'll be in touch within 24 hours.
+                    </p>
+                  </div>
+
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                      {/* Name Fields */}
+                      <div className="grid sm:grid-cols-2 gap-4">
                         <FormField
                           control={form.control}
                           name="firstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>{t('contact.name').split(' ')[0]}</FormLabel>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                                First Name
+                              </FormLabel>
                               <FormControl>
-                                <Input placeholder="John" {...field} />
+                                <Input
+                                  placeholder="John"
+                                  className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                  {...field}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -115,9 +159,15 @@ export function ContactForm() {
                           name="lastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>{t('contact.name').split(' ')[1] || "Last Name"}</FormLabel>
+                              <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                                Last Name
+                              </FormLabel>
                               <FormControl>
-                                <Input placeholder="Doe" {...field} />
+                                <Input
+                                  placeholder="Smith"
+                                  className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                  {...field}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -125,70 +175,111 @@ export function ContactForm() {
                         />
                       </div>
 
+                      {/* Practice Name */}
                       <FormField
                         control={form.control}
                         name="practiceName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>{t('contact.practice')}</FormLabel>
+                            <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                              {t('contact.practice')}
+                            </FormLabel>
                             <FormControl>
-                              <Input placeholder="Bright Smiles Dental" {...field} />
+                              <Input
+                                placeholder="Bright Smiles Dental"
+                                className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
 
+                      {/* Email */}
                       <FormField
                         control={form.control}
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>{t('contact.email')}</FormLabel>
+                            <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                              {t('contact.email')}
+                            </FormLabel>
                             <FormControl>
-                              <Input placeholder="doctor@clinic.com" {...field} />
+                              <Input
+                                type="email"
+                                placeholder="doctor@yourpractice.com"
+                                className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
 
+                      {/* Phone */}
                       <FormField
                         control={form.control}
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>{t('contact.phone')}</FormLabel>
+                            <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                              {t('contact.phone')}
+                            </FormLabel>
                             <FormControl>
-                              <Input placeholder="(555) 123-4567" {...field} />
+                              <Input
+                                type="tel"
+                                placeholder="(403) 555-1234"
+                                className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
 
+                      {/* Message */}
                       <FormField
                         control={form.control}
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>{t('contact.message')}</FormLabel>
+                            <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                              {t('contact.message')} <span className="text-slate-400 font-normal">(optional)</span>
+                            </FormLabel>
                             <FormControl>
-                              <Textarea placeholder="Tell us about your needs..." className="min-h-[100px]" {...field} />
+                              <Textarea
+                                placeholder="Tell us about your practice and what challenges you're facing..."
+                                className="min-h-[100px] rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20 resize-none"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
 
-                      <Button type="submit" className="w-full h-12 text-lg mt-4">
+                      {/* Submit Button */}
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full h-14 text-base font-semibold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-200 group"
+                      >
                         {t('contact.submit')}
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                       </Button>
+
+                      {/* Privacy note */}
+                      <p className="text-xs text-center text-slate-400 dark:text-slate-500">
+                        By submitting, you agree to our Privacy Policy. We'll never share your information.
+                      </p>
                     </form>
                   </Form>
                 </div>
               </div>
-            </Card>
+            </div>
           </motion.div>
         </div>
       </div>

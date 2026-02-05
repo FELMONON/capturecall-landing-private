@@ -199,3 +199,75 @@
     pointer-events: none;
   }
 }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: hsl(224 64% 33% / 0.2);
+  color: hsl(224 64% 33%);
+}
+
+.dark ::selection {
+  background-color: hsl(210 40% 98% / 0.2);
+  color: hsl(210 40% 98%);
+}
+
+/* Improve focus visibility for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(224 64% 33%);
+  outline-offset: 2px;
+}
+
+/* Remove default tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Prevent horizontal scroll from animations */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Better tap targets */
+  button, a {
+    min-height: 44px;
+  }
+}
+
+/* Animation for live indicator pulse */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

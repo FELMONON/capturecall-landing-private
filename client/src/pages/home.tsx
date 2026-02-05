@@ -6,12 +6,13 @@ import { TrustBar } from '@/components/sections/TrustBar';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Benefits } from '@/components/sections/Benefits';
+import { Testimonials } from '@/components/sections/Testimonials';
 import { PremiumPricing } from '@/components/sections/PremiumPricing';
 import { ContactForm } from '@/components/sections/ContactForm';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 overflow-x-hidden font-sans">
+    <div className="min-h-screen bg-white dark:bg-slate-950 overflow-x-hidden font-sans antialiased">
       <Header />
       <main>
         <PremiumHero />
@@ -19,6 +20,7 @@ export default function Home() {
         <ProblemSection />
         <HowItWorks />
         <Benefits />
+        <Testimonials />
         <PremiumPricing />
         <ContactForm />
       </main>

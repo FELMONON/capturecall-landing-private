@@ -14,83 +14,105 @@ const resources = {
       "hero": {
         "badge": "Trusted by 50+ Calgary Dental Practices",
         "headline": "Never Miss Another Patient Call",
-        "subhead": "CaptureCall AI handles 100% of your calls 24/7, books appointments directly into your PMS, and saves your front desk 20+ hours a week.",
-        "primaryCta": "Get Started",
-        "secondaryCta": "See Live Demo",
-        "stat": "Calls Saved This Week"
+        "subhead": "CaptureCall AI answers every call 24/7, books appointments directly into your practice management system, and gives your front desk 20+ hours back each week.",
+        "primaryCta": "Book Your Free Demo",
+        "secondaryCta": "Watch 2-Min Demo",
+        "stat": "Calls Answered Today",
+        "statNumber": "2,847",
+        "socialProof": "Join 50+ practices saving $100K+ annually"
       },
       "trust": {
         "hipaa": "HIPAA Compliant",
-        "soc2": "SOC 2 Secure",
-        "award": "Award Winning",
-        "rating": "4.9/5 Rating"
+        "soc2": "SOC 2 Certified",
+        "integrations": "Dentrix, Eaglesoft & Open Dental",
+        "rating": "4.9/5 from 127 Reviews"
       },
       "problem": {
         "title": "The Hidden Cost of Missed Calls",
+        "subtitle": "Every unanswered call is a patient choosing your competitor",
         "card1": {
           "title": "Lost Revenue",
-          "desc": "Every missed new patient call is $1,500+ in lost lifetime value."
+          "stat": "$1,500+",
+          "desc": "Average lifetime value lost per missed new patient call"
         },
         "card2": {
           "title": "Staff Burnout",
-          "desc": "Front desk staff are overwhelmed juggling phones and in-person patients."
+          "stat": "67%",
+          "desc": "of front desk staff report feeling overwhelmed by call volume"
         },
         "card3": {
-          "title": "Poor Experience",
-          "desc": "Patients hate voicemail. 85% will call a competitor if you don't answer."
+          "title": "Lost Patients",
+          "stat": "85%",
+          "desc": "of patients will call a competitor if they reach voicemail"
         },
-        "highlight": "$100k - $265k lost annually"
+        "highlight": "Average dental practice loses $100K - $265K annually to missed calls"
       },
       "howItWorks": {
-        "title": "How CaptureCall AI Works",
+        "title": "Up and Running in 30 Minutes",
+        "subtitle": "No IT team required. No complex integrations. Just results.",
         "step1": {
-          "title": "Quick Setup",
-          "desc": "We integrate with your phone system and PMS in under 30 minutes."
+          "title": "Connect Your System",
+          "desc": "We integrate with your existing phone system and PMS - Dentrix, Eaglesoft, or Open Dental.",
+          "time": "15 min"
         },
         "step2": {
-          "title": "Smart Training",
-          "desc": "Our AI learns your practice's specific protocols and FAQs."
+          "title": "Train Your AI",
+          "desc": "Our AI learns your practice's protocols, services, and FAQs from a simple onboarding call.",
+          "time": "10 min"
         },
         "step3": {
-          "title": "Go Live",
-          "desc": "Relax knowing every call is answered professionally, 24/7."
+          "title": "Start Capturing Calls",
+          "desc": "Go live and watch as every call is answered professionally, appointments booked, and revenue recovered.",
+          "time": "5 min"
         }
       },
       "benefits": {
-        "title": "Why Top Practices Choose Us",
+        "title": "Everything Your Front Desk Needs",
+        "subtitle": "Powerful features designed specifically for dental practices",
         "b1": "24/7 Availability",
-        "b1desc": "Answer calls nights, weekends, and holidays.",
+        "b1desc": "Never miss a call - nights, weekends, or holidays. Patients always reach a helpful voice.",
         "b2": "Instant Booking",
-        "b2desc": "Integrates with Dentrix, Eaglesoft, and Open Dental.",
+        "b2desc": "Books directly into Dentrix, Eaglesoft, or Open Dental. No double-entry or sync issues.",
         "b3": "Bilingual Support",
-        "b3desc": "Fluent in English and French for all patients.",
-        "b4": "Call Analytics",
-        "b4desc": "Dashboard with recording and sentiment analysis.",
-        "b5": "Reduced Overhead",
-        "b5desc": "A fraction of the cost of a full-time receptionist.",
-        "b6": "Patient Satisfaction",
-        "b6desc": "No more hold times or voicemail jail."
+        "b3desc": "Fluent in English and French. Serves all your patients in their preferred language.",
+        "b4": "Smart Analytics",
+        "b4desc": "Real-time dashboard with call recordings, sentiment analysis, and conversion tracking.",
+        "b5": "90% Cost Savings",
+        "b5desc": "A fraction of hiring another receptionist. ROI positive from month one.",
+        "b6": "Zero Wait Times",
+        "b6desc": "Patients never wait on hold or reach voicemail. Every caller feels valued."
       },
       "pricing": {
         "title": "Simple, Transparent Pricing",
+        "subtitle": "No hidden fees. No long-term contracts. Cancel anytime.",
         "monthly": "Monthly",
         "yearly": "Yearly (Save 20%)",
         "starter": {
           "name": "Starter",
           "price": "$299",
-          "desc": "Perfect for small practices."
+          "period": "/month",
+          "desc": "Perfect for single-location practices",
+          "cta": "Start Free Trial",
+          "features": ["Up to 200 calls/month", "1 practice location", "Dentrix integration", "Email support", "Basic analytics"]
         },
         "pro": {
           "name": "Professional",
           "price": "$499",
-          "desc": "For growing clinics with high volume."
+          "period": "/month",
+          "desc": "For busy practices with high call volume",
+          "cta": "Start Free Trial",
+          "popular": true,
+          "features": ["Unlimited calls", "Up to 3 locations", "All PMS integrations", "Priority phone support", "Advanced analytics", "Custom AI training"]
         },
         "enterprise": {
           "name": "Enterprise",
           "price": "Custom",
-          "desc": "For DSOs and multi-location groups."
+          "period": "",
+          "desc": "For DSOs and multi-location groups",
+          "cta": "Contact Sales",
+          "features": ["Unlimited everything", "Unlimited locations", "Dedicated success manager", "Custom integrations", "SLA guarantee", "White-label option"]
         },
-        "guarantee": "30-Day Money-Back Guarantee"
+        "guarantee": "30-Day Money-Back Guarantee - No Questions Asked"
       },
       "contact": {
         "title": "Ready to Transform Your Practice?",
@@ -100,6 +122,10 @@ const resources = {
         "phone": "Phone Number",
         "message": "Message",
         "submit": "Request Demo"
+      },
+      "testimonials": {
+        "title": "Trusted by Leading Dental Practices",
+        "subtitle": "See what practice owners are saying about CaptureCall AI"
       },
       "footer": {
         "desc": "The #1 AI Receptionist for Dental Practices."
@@ -118,16 +144,18 @@ const resources = {
       "hero": {
         "badge": "Approuvé par 50+ cabinets dentaires à Calgary",
         "headline": "Ne manquez plus jamais un appel",
-        "subhead": "CaptureCall AI gère 100% de vos appels 24/7, prend les rendez-vous directement dans votre PMS et fait gagner 20h+ par semaine à votre accueil.",
-        "primaryCta": "Commencer",
-        "secondaryCta": "Voir la démo",
-        "stat": "Appels sauvés cette semaine"
+        "subhead": "CaptureCall AI répond à chaque appel 24/7, réserve les rendez-vous directement dans votre système de gestion et libère 20h+ par semaine à votre accueil.",
+        "primaryCta": "Réservez votre démo gratuite",
+        "secondaryCta": "Voir la démo de 2 min",
+        "stat": "Appels répondus aujourd'hui",
+        "statNumber": "2,847",
+        "socialProof": "Rejoignez 50+ cabinets économisant 100K$+ par an"
       },
       "trust": {
         "hipaa": "Conforme HIPAA",
-        "soc2": "Sécurité SOC 2",
-        "award": "Primé",
-        "rating": "Note 4.9/5"
+        "soc2": "Certifié SOC 2",
+        "integrations": "Dentrix, Eaglesoft & Open Dental",
+        "rating": "4.9/5 de 127 avis"
       },
       "problem": {
         "title": "Le coût caché des appels manqués",
