@@ -8,7 +8,9 @@ import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Benefits } from '@/components/sections/Benefits';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { PremiumPricing } from '@/components/sections/PremiumPricing';
+import { FAQ } from '@/components/sections/FAQ';
 import { ContactForm } from '@/components/sections/ContactForm';
+import { FinalCTA } from '@/components/sections/FinalCTA';
 
 export default function Home() {
   return (
@@ -22,7 +24,9 @@ export default function Home() {
         <Benefits />
         <Testimonials />
         <PremiumPricing />
+        <FAQ />
         <ContactForm />
+        <FinalCTA />
       </main>
       <Footer />
     </div>

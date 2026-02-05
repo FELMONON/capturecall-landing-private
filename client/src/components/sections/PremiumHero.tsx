@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,36 @@ import { ShieldCheck, Star, Phone, Play, ArrowRight, CheckCircle2 } from 'lucide
 import heroImage from '@assets/generated_images/Modern_dental_reception_area_c5efb7b4.png';
 import { useABTest, AB_TESTS, HEADLINE_VARIANTS, HeadlineVariant } from '@/lib/abtest';
 import { analytics } from '@/lib/analytics';
+
+function useCountUp(target: number, duration: number = 2000) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const startTime = performance.now();
+          const animate = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(eased * target));
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return { count, ref };
+}
 
 export function PremiumHero() {
   const { t } = useTranslation();
@@ -26,6 +56,8 @@ export function PremiumHero() {
     analytics.ctaClick('hero_secondary_cta', 'hero');
     analytics.videoPlay('demo_video');
   };
+
+  const { count: statCount, ref: statRef } = useCountUp(2847, 2000);
 
   return (
     <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
@@ -132,9 +164,9 @@ export function PremiumHero() {
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-green-500/30">
                       <Phone className="w-7 h-7" />
                     </div>
-                    <div>
-                      <p className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-                        {t('hero.statNumber')}
+                    <div ref={statRef}>
+                      <p className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight tabular-nums">
+                        {statCount.toLocaleString()}
                       </p>
                       <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
                         {t('hero.stat')}
