@@ -5,21 +5,21 @@ const resources = {
   en: {
     translation: {
       "nav": {
-        "howItWorks": "How it Works",
+        "howItWorks": "How It Works",
         "benefits": "Benefits",
         "pricing": "Pricing",
         "contact": "Contact",
-        "bookDemo": "Book Free Demo"
+        "bookDemo": "Get My Free Demo"
       },
       "hero": {
-        "badge": "Trusted by 50+ Calgary Dental Practices",
-        "headline": "Never Miss Another Patient Call",
-        "subhead": "CaptureCall AI answers every call 24/7, books appointments directly into your practice management system, and gives your front desk 20+ hours back each week.",
-        "primaryCta": "Book Your Free Demo",
-        "secondaryCta": "Watch 2-Min Demo",
+        "badge": "50+ Calgary Dental Practices Trust Us",
+        "headline": "Stop Losing $1,500 Every Time Your Phone Rings Unanswered",
+        "subhead": "Your front desk is juggling patients, paperwork, and a ringing phone. CaptureCall AI answers every call in 2 rings, books appointments into Dentrix automatically, and gives your team 20+ hours back each week.",
+        "primaryCta": "Get My Free Demo",
+        "secondaryCta": "See It In Action",
         "stat": "Calls Answered Today",
         "statNumber": "2,847",
-        "socialProof": "Join 50+ practices saving $100K+ annually"
+        "socialProof": "50+ practices recovered $5M+ in lost revenue"
       },
       "trust": {
         "hipaa": "HIPAA Compliant",
@@ -28,107 +28,107 @@ const resources = {
         "rating": "4.9/5 from 127 Reviews"
       },
       "problem": {
-        "title": "The Hidden Cost of Missed Calls",
-        "subtitle": "Every unanswered call is a patient choosing your competitor",
+        "title": "Right Now, Patients Are Calling Your Competitors",
+        "subtitle": "Because no one picked up your phone",
         "card1": {
           "title": "Lost Revenue",
           "stat": "$1,500+",
-          "desc": "Average lifetime value lost per missed new patient call"
+          "desc": "Lifetime value walks out the door with every missed new patient call"
         },
         "card2": {
-          "title": "Staff Burnout",
+          "title": "Overwhelmed Staff",
           "stat": "67%",
-          "desc": "of front desk staff report feeling overwhelmed by call volume"
+          "desc": "of front desk staff can't keep up with phones while helping in-office patients"
         },
         "card3": {
-          "title": "Lost Patients",
+          "title": "Gone in 30 Seconds",
           "stat": "85%",
-          "desc": "of patients will call a competitor if they reach voicemail"
+          "desc": "of patients hang up and call another practice if they hit voicemail"
         },
-        "highlight": "Average dental practice loses $100K - $265K annually to missed calls"
+        "highlight": "The math: 3 missed calls per day × $1,500 lifetime value = $135K lost per year"
       },
       "howItWorks": {
-        "title": "Up and Running in 30 Minutes",
-        "subtitle": "No IT team required. No complex integrations. Just results.",
+        "title": "Live in 30 Minutes. No IT Required.",
+        "subtitle": "We handle the setup. You handle the patients.",
         "step1": {
-          "title": "Connect Your System",
-          "desc": "We integrate with your existing phone system and PMS - Dentrix, Eaglesoft, or Open Dental.",
+          "title": "We Connect to Your Systems",
+          "desc": "Forward your overflow calls to CaptureCall. We plug into Dentrix, Eaglesoft, or Open Dental.",
           "time": "15 min"
         },
         "step2": {
-          "title": "Train Your AI",
-          "desc": "Our AI learns your practice's protocols, services, and FAQs from a simple onboarding call.",
+          "title": "We Learn Your Practice",
+          "desc": "One 10-minute call. We learn your services, hours, insurance policies, and booking rules.",
           "time": "10 min"
         },
         "step3": {
-          "title": "Start Capturing Calls",
-          "desc": "Go live and watch as every call is answered professionally, appointments booked, and revenue recovered.",
+          "title": "Calls Get Answered",
+          "desc": "Every ring answered. Appointments booked. Patients happy. Revenue recovered.",
           "time": "5 min"
         }
       },
       "benefits": {
-        "title": "Everything Your Front Desk Needs",
-        "subtitle": "Powerful features designed specifically for dental practices",
-        "b1": "24/7 Availability",
-        "b1desc": "Never miss a call - nights, weekends, or holidays. Patients always reach a helpful voice.",
-        "b2": "Instant Booking",
-        "b2desc": "Books directly into Dentrix, Eaglesoft, or Open Dental. No double-entry or sync issues.",
-        "b3": "Bilingual Support",
-        "b3desc": "Fluent in English and French. Serves all your patients in their preferred language.",
-        "b4": "Smart Analytics",
-        "b4desc": "Real-time dashboard with call recordings, sentiment analysis, and conversion tracking.",
-        "b5": "90% Cost Savings",
-        "b5desc": "A fraction of hiring another receptionist. ROI positive from month one.",
-        "b6": "Zero Wait Times",
-        "b6desc": "Patients never wait on hold or reach voicemail. Every caller feels valued."
+        "title": "What Your Front Desk Wishes They Had",
+        "subtitle": "Built for dental practices, not generic call centers",
+        "b1": "Answers at 2am",
+        "b1desc": "Nights, weekends, lunch breaks, holidays. Patients call when it's convenient for them, not you.",
+        "b2": "Books Into Your PMS",
+        "b2desc": "Appointments land directly in Dentrix, Eaglesoft, or Open Dental. No copy-paste. No double-booking.",
+        "b3": "Speaks Their Language",
+        "b3desc": "Fluent English and French. Patients hear their native language, not \"press 1 for...\"",
+        "b4": "See Every Call",
+        "b4desc": "Dashboard with recordings, transcripts, and conversion rates. Know exactly what's happening.",
+        "b5": "1/10th the Cost",
+        "b5desc": "Hiring a receptionist: $45K/year. CaptureCall: $6K/year. Works 24/7. Never calls in sick.",
+        "b6": "No Hold Music",
+        "b6desc": "Answered in 2 rings. Not 2 minutes. Patients feel valued from the first hello."
       },
       "pricing": {
-        "title": "Simple, Transparent Pricing",
-        "subtitle": "No hidden fees. No long-term contracts. Cancel anytime.",
+        "title": "Pick a Plan. Cancel Anytime.",
+        "subtitle": "No setup fees. No annual contracts. 30-day money-back guarantee.",
         "monthly": "Monthly",
         "yearly": "Yearly (Save 20%)",
         "starter": {
           "name": "Starter",
           "price": "$299",
           "period": "/month",
-          "desc": "Perfect for single-location practices",
-          "cta": "Start Free Trial",
-          "features": ["Up to 200 calls/month", "1 practice location", "Dentrix integration", "Email support", "Basic analytics"]
+          "desc": "For single-location practices",
+          "cta": "Try Free for 14 Days",
+          "features": ["Up to 200 calls/month", "1 practice location", "Dentrix integration", "Email support", "Call analytics dashboard"]
         },
         "pro": {
           "name": "Professional",
           "price": "$499",
           "period": "/month",
-          "desc": "For busy practices with high call volume",
-          "cta": "Start Free Trial",
+          "desc": "For practices with 500+ calls/month",
+          "cta": "Try Free for 14 Days",
           "popular": true,
-          "features": ["Unlimited calls", "Up to 3 locations", "All PMS integrations", "Priority phone support", "Advanced analytics", "Custom AI training"]
+          "features": ["Unlimited calls", "Up to 3 locations", "Dentrix, Eaglesoft & Open Dental", "Priority phone support", "Custom AI training", "Conversion tracking"]
         },
         "enterprise": {
           "name": "Enterprise",
           "price": "Custom",
           "period": "",
-          "desc": "For DSOs and multi-location groups",
-          "cta": "Contact Sales",
-          "features": ["Unlimited everything", "Unlimited locations", "Dedicated success manager", "Custom integrations", "SLA guarantee", "White-label option"]
+          "desc": "For DSOs with 4+ locations",
+          "cta": "Talk to Sales",
+          "features": ["Unlimited calls & locations", "Dedicated account manager", "Custom PMS integrations", "99.9% uptime SLA", "White-label option", "Volume discounts"]
         },
-        "guarantee": "30-Day Money-Back Guarantee - No Questions Asked"
+        "guarantee": "Not happy? Full refund within 30 days. No questions. No hassle."
       },
       "contact": {
-        "title": "Ready to Transform Your Practice?",
-        "name": "Full Name",
+        "title": "See CaptureCall Handle a Real Call",
+        "name": "Your Name",
         "practice": "Practice Name",
-        "email": "Email Address",
+        "email": "Work Email",
         "phone": "Phone Number",
-        "message": "Message",
-        "submit": "Request Demo"
+        "message": "Anything we should know?",
+        "submit": "Get My Free Demo"
       },
       "testimonials": {
-        "title": "Trusted by Leading Dental Practices",
-        "subtitle": "See what practice owners are saying about CaptureCall AI"
+        "title": "Don't Take Our Word For It",
+        "subtitle": "Hear from practice owners who stopped losing patients to voicemail"
       },
       "footer": {
-        "desc": "The #1 AI Receptionist for Dental Practices."
+        "desc": "AI that answers your phone. So your team can focus on patients."
       }
     }
   },
@@ -139,17 +139,17 @@ const resources = {
         "benefits": "Avantages",
         "pricing": "Tarifs",
         "contact": "Contact",
-        "bookDemo": "Réserver une démo"
+        "bookDemo": "Obtenir ma démo"
       },
       "hero": {
-        "badge": "Approuvé par 50+ cabinets dentaires à Calgary",
-        "headline": "Ne manquez plus jamais un appel",
-        "subhead": "CaptureCall AI répond à chaque appel 24/7, réserve les rendez-vous directement dans votre système de gestion et libère 20h+ par semaine à votre accueil.",
-        "primaryCta": "Réservez votre démo gratuite",
-        "secondaryCta": "Voir la démo de 2 min",
+        "badge": "50+ cabinets dentaires à Calgary nous font confiance",
+        "headline": "Arrêtez de perdre 1 500 $ chaque fois que le téléphone sonne sans réponse",
+        "subhead": "Votre réception jongle entre patients, paperasse et téléphone qui sonne. CaptureCall AI répond en 2 sonneries, réserve les rendez-vous dans Dentrix automatiquement et libère 20h+ par semaine à votre équipe.",
+        "primaryCta": "Obtenir ma démo gratuite",
+        "secondaryCta": "Voir en action",
         "stat": "Appels répondus aujourd'hui",
         "statNumber": "2,847",
-        "socialProof": "Rejoignez 50+ cabinets économisant 100K$+ par an"
+        "socialProof": "50+ cabinets ont récupéré plus de 5M$ en revenus perdus"
       },
       "trust": {
         "hipaa": "Conforme HIPAA",
@@ -158,83 +158,107 @@ const resources = {
         "rating": "4.9/5 de 127 avis"
       },
       "problem": {
-        "title": "Le coût caché des appels manqués",
+        "title": "En ce moment, des patients appellent vos concurrents",
+        "subtitle": "Parce que personne n'a décroché chez vous",
         "card1": {
-          "title": "Perte de revenus",
-          "desc": "Chaque nouveau patient manqué représente 1 500 $+ de valeur perdue."
+          "title": "Revenus perdus",
+          "stat": "1 500 $+",
+          "desc": "La valeur à vie d'un patient s'envole à chaque appel manqué"
         },
         "card2": {
-          "title": "Épuisement du personnel",
-          "desc": "Le personnel d'accueil est débordé entre le téléphone et les patients."
+          "title": "Personnel débordé",
+          "stat": "67%",
+          "desc": "des réceptionnistes ne peuvent pas gérer le téléphone et les patients en même temps"
         },
         "card3": {
-          "title": "Mauvaise expérience",
-          "desc": "Les patients détestent les boîtes vocales. 85% appelleront un concurrent."
+          "title": "Parti en 30 secondes",
+          "stat": "85%",
+          "desc": "des patients raccrochent et appellent un autre cabinet s'ils tombent sur la boîte vocale"
         },
-        "highlight": "100k $ - 265k $ perdus annuellement"
+        "highlight": "Le calcul : 3 appels manqués/jour × 1 500 $ = 135K $ perdus par an"
       },
       "howItWorks": {
-        "title": "Comment fonctionne CaptureCall AI",
+        "title": "En ligne en 30 minutes. Sans informaticien.",
+        "subtitle": "On s'occupe de l'installation. Vous, des patients.",
         "step1": {
-          "title": "Installation rapide",
-          "desc": "Nous intégrons votre système téléphonique et PMS en moins de 30 min."
+          "title": "On se connecte à vos systèmes",
+          "desc": "Transférez vos appels débordés vers CaptureCall. On s'intègre à Dentrix, Eaglesoft ou Open Dental.",
+          "time": "15 min"
         },
         "step2": {
-          "title": "Apprentissage intelligent",
-          "desc": "Notre IA apprend les protocoles et FAQ spécifiques de votre cabinet."
+          "title": "On apprend votre cabinet",
+          "desc": "Un appel de 10 minutes. On apprend vos services, horaires, assurances et règles de réservation.",
+          "time": "10 min"
         },
         "step3": {
-          "title": "Mise en ligne",
-          "desc": "Détendez-vous sachant que chaque appel est répondu professionnellement."
+          "title": "Les appels sont répondus",
+          "desc": "Chaque sonnerie répondue. Rendez-vous réservés. Patients satisfaits. Revenus récupérés.",
+          "time": "5 min"
         }
       },
       "benefits": {
-        "title": "Pourquoi les meilleurs cabinets nous choisissent",
-        "b1": "Disponibilité 24/7",
-        "b1desc": "Réponse aux appels nuits, week-ends et jours fériés.",
-        "b2": "Réservation instantanée",
-        "b2desc": "S'intègre avec Dentrix, Eaglesoft et Open Dental.",
-        "b3": "Support bilingue",
-        "b3desc": "Parle couramment anglais et français.",
-        "b4": "Analytique d'appels",
-        "b4desc": "Tableau de bord avec enregistrements et analyse de sentiments.",
-        "b5": "Frais réduits",
-        "b5desc": "Une fraction du coût d'une réceptionniste à temps plein.",
-        "b6": "Satisfaction patient",
-        "b6desc": "Plus de temps d'attente ou de messagerie vocale."
+        "title": "Ce dont votre réception rêve",
+        "subtitle": "Conçu pour les cabinets dentaires, pas pour les centres d'appels génériques",
+        "b1": "Répond à 2h du matin",
+        "b1desc": "Nuits, week-ends, pauses déjeuner, jours fériés. Les patients appellent quand ça les arrange.",
+        "b2": "Réserve dans votre PMS",
+        "b2desc": "Les rendez-vous arrivent directement dans Dentrix, Eaglesoft ou Open Dental. Pas de copier-coller.",
+        "b3": "Parle leur langue",
+        "b3desc": "Anglais et français courants. Les patients entendent leur langue, pas « appuyez sur 1 pour... »",
+        "b4": "Voyez chaque appel",
+        "b4desc": "Tableau de bord avec enregistrements, transcriptions et taux de conversion. Sachez exactement ce qui se passe.",
+        "b5": "1/10 du coût",
+        "b5desc": "Embaucher une réceptionniste : 45K$/an. CaptureCall : 6K$/an. Disponible 24/7. Ne tombe jamais malade.",
+        "b6": "Pas de musique d'attente",
+        "b6desc": "Répondu en 2 sonneries. Pas 2 minutes. Les patients se sentent valorisés dès le premier bonjour."
       },
       "pricing": {
-        "title": "Tarification simple et transparente",
+        "title": "Choisissez un forfait. Annulez quand vous voulez.",
+        "subtitle": "Pas de frais d'installation. Pas de contrat annuel. Garantie de remboursement 30 jours.",
         "monthly": "Mensuel",
         "yearly": "Annuel (Économisez 20%)",
         "starter": {
           "name": "Démarrage",
           "price": "299 $",
-          "desc": "Parfait pour les petits cabinets."
+          "period": "/mois",
+          "desc": "Pour les cabinets à un seul emplacement",
+          "cta": "Essai gratuit 14 jours",
+          "features": ["Jusqu'à 200 appels/mois", "1 emplacement", "Intégration Dentrix", "Support par email", "Tableau de bord analytique"]
         },
         "pro": {
           "name": "Professionnel",
           "price": "499 $",
-          "desc": "Pour les cliniques en croissance."
+          "period": "/mois",
+          "desc": "Pour les cabinets avec 500+ appels/mois",
+          "cta": "Essai gratuit 14 jours",
+          "popular": true,
+          "features": ["Appels illimités", "Jusqu'à 3 emplacements", "Dentrix, Eaglesoft & Open Dental", "Support téléphonique prioritaire", "Formation IA personnalisée", "Suivi des conversions"]
         },
         "enterprise": {
           "name": "Entreprise",
           "price": "Sur mesure",
-          "desc": "Pour les groupes et DSO."
+          "period": "",
+          "desc": "Pour les DSO avec 4+ emplacements",
+          "cta": "Parler aux ventes",
+          "features": ["Appels et emplacements illimités", "Gestionnaire de compte dédié", "Intégrations PMS personnalisées", "SLA 99.9% de disponibilité", "Option marque blanche", "Remises sur volume"]
         },
-        "guarantee": "Garantie satisfait ou remboursé de 30 jours"
+        "guarantee": "Pas satisfait ? Remboursement complet sous 30 jours. Sans questions. Sans tracas."
       },
       "contact": {
-        "title": "Prêt à transformer votre cabinet ?",
-        "name": "Nom complet",
+        "title": "Voyez CaptureCall gérer un vrai appel",
+        "name": "Votre nom",
         "practice": "Nom du cabinet",
-        "email": "Adresse email",
+        "email": "Email professionnel",
         "phone": "Numéro de téléphone",
-        "message": "Message",
-        "submit": "Demander une démo"
+        "message": "Quelque chose à nous dire ?",
+        "submit": "Obtenir ma démo gratuite"
+      },
+      "testimonials": {
+        "title": "Ne nous croyez pas sur parole",
+        "subtitle": "Écoutez les propriétaires de cabinets qui ont arrêté de perdre des patients à cause de la boîte vocale"
       },
       "footer": {
-        "desc": "L'IA réceptionniste n°1 pour les cabinets dentaires."
+        "desc": "L'IA qui répond à vos appels. Pour que votre équipe se concentre sur les patients."
       }
     }
   }

@@ -5,25 +5,25 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "CaptureCall AI has been a game-changer for our practice. We went from missing 30% of calls to capturing 100%. Our new patient bookings increased by 40% in the first month.",
+    quote: "We tracked it. 47 missed calls in one week before CaptureCall. Zero missed calls since. That's 47 potential new patients we would have lost to the practice down the street.",
     author: "Dr. Sarah Chen",
     role: "Owner, Smile Dental Calgary",
     rating: 5,
-    metric: "+40% new patients",
+    metric: "47→0 missed calls/week",
   },
   {
-    quote: "My front desk staff used to be overwhelmed. Now they can focus on in-office patients while the AI handles phone calls perfectly. The integration with Dentrix is seamless.",
+    quote: "My receptionist was drowning. Phone ringing, patients at the desk, insurance on hold. Now she actually has time to greet patients properly. The Dentrix sync just works.",
     author: "Dr. Michael Torres",
     role: "Chinook Family Dentistry",
     rating: 5,
-    metric: "20+ hrs saved weekly",
+    metric: "23 hrs saved weekly",
   },
   {
-    quote: "I was skeptical about AI, but the calls sound completely natural. Patients have no idea they're talking to an AI. It's paid for itself many times over.",
+    quote: "A patient told me how helpful my 'new receptionist' was. It was the AI. They booked a cleaning at 11pm on a Saturday. That's a $4,200 case we would have missed.",
     author: "Dr. Emily Watson",
     role: "Downtown Dental Group",
     rating: 5,
-    metric: "$127K recovered annually",
+    metric: "$127K recovered in year 1",
   },
 ];
 
