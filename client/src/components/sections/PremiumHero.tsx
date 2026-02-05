@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Star, Phone, Play, ArrowRight, CheckCircle2 } from 'lucide-react';
 import heroImage from '@assets/generated_images/Modern_dental_reception_area_c5efb7b4.png';
+import { useABTest, AB_TESTS, HEADLINE_VARIANTS, HeadlineVariant } from '@/lib/abtest';
+import { analytics } from '@/lib/analytics';
 
 export function PremiumHero() {
   const { t } = useTranslation();
+  const { variant, trackConversion } = useABTest(AB_TESTS.hero_headline);
+  const headlineContent = HEADLINE_VARIANTS[variant as HeadlineVariant];
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      analytics.ctaClick('hero_primary_cta', 'hero');
+      trackConversion('cta_click');
     }
+  };
+
+  const handleSecondaryCtaClick = () => {
+    analytics.ctaClick('hero_secondary_cta', 'hero');
+    analytics.videoPlay('demo_video');
   };
 
   return (
@@ -43,14 +54,14 @@ export function PremiumHero() {
               {t('hero.badge')}
             </Badge>
 
-            {/* Headline */}
+            {/* Headline - A/B tested */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-6">
-              {t('hero.headline')}
+              {headlineContent.headline}
             </h1>
 
-            {/* Subhead */}
+            {/* Subhead - A/B tested */}
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-              {t('hero.subhead')}
+              {headlineContent.subhead}
             </p>
 
             {/* CTAs */}
@@ -66,6 +77,7 @@ export function PremiumHero() {
               <Button
                 size="lg"
                 variant="outline"
+                onClick={handleSecondaryCtaClick}
                 className="text-base px-8 py-6 rounded-full border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 transition-all duration-200 group"
               >
                 <Play className="w-4 h-4 mr-2 fill-current" />

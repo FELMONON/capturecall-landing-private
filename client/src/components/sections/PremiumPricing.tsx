@@ -5,10 +5,16 @@ import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { motion } from 'framer-motion';
+import { analytics } from '@/lib/analytics';
 
 export function PremiumPricing() {
   const { t, i18n } = useTranslation();
   const [isYearly, setIsYearly] = useState(false);
+
+  const handleBillingToggle = (yearly: boolean) => {
+    setIsYearly(yearly);
+    analytics.pricingToggle(yearly ? 'yearly' : 'monthly');
+  };
 
   const plans = [
     {
@@ -71,7 +77,9 @@ export function PremiumPricing() {
     return `$${finalPrice.toLocaleString('en-US')}`;
   };
 
-  const scrollToContact = () => {
+  const scrollToContact = (planKey: string) => {
+    analytics.ctaClick(`pricing_${planKey}_cta`, 'pricing');
+    analytics.pricingView(planKey);
     const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -104,7 +112,7 @@ export function PremiumPricing() {
             {/* Billing Toggle */}
             <div className="inline-flex items-center gap-4 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
               <button
-                onClick={() => setIsYearly(false)}
+                onClick={() => handleBillingToggle(false)}
                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   !isYearly
                     ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
@@ -114,7 +122,7 @@ export function PremiumPricing() {
                 {t('pricing.monthly')}
               </button>
               <button
-                onClick={() => setIsYearly(true)}
+                onClick={() => handleBillingToggle(true)}
                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                   isYearly
                     ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
@@ -216,9 +224,9 @@ export function PremiumPricing() {
                         : ''
                     }`}
                     variant={plan.popular ? 'default' : 'outline'}
-                    onClick={scrollToContact}
+                    onClick={() => scrollToContact(plan.key)}
                   >
-                    {plan.key === 'enterprise' ? 'Contact Sales' : 'Start Free Trial'}
+                    {t(`pricing.${plan.key}.cta`)}
                   </Button>
                 </CardFooter>
               </Card>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from 'framer-motion';
 import { Phone, Mail, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
+import { AB_TESTS, getVariant } from '@/lib/abtest';
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -23,6 +25,7 @@ const formSchema = z.object({
 export function ContactForm() {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const formStartedRef = useRef(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -36,13 +39,35 @@ export function ContactForm() {
     },
   });
 
+  // Track form start when user focuses on first field
+  const handleFormStart = () => {
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      analytics.formStart('demo_request');
+    }
+  };
+
+  // Track individual field focus
+  const handleFieldFocus = (fieldName: string) => {
+    handleFormStart();
+    analytics.formFieldFocus('demo_request', fieldName);
+  };
+
   function onSubmit(values: z.infer<typeof formSchema>) {
+    // Track form submission
+    analytics.formSubmit('demo_request', true);
+
+    // Track A/B test conversion
+    const headlineVariant = getVariant(AB_TESTS.hero_headline);
+    analytics.abTestConversion('hero_headline', headlineVariant, 'form_submit');
+
     console.log(values);
     toast({
       title: "Demo Request Submitted!",
       description: "Our team will contact you within 24 hours to schedule your personalized demo.",
     });
     form.reset();
+    formStartedRef.current = false;
   }
 
   const benefits = [
@@ -147,6 +172,7 @@ export function ContactForm() {
                                 <Input
                                   placeholder="John"
                                   className="h-12 rounded-xl border-slate-200 dark:border-slate-700 focus:border-blue-500 focus:ring-blue-500/20"
+                                  onFocus={() => handleFieldFocus('firstName')}
                                   {...field}
                                 />
                               </FormControl>
